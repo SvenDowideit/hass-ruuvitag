@@ -8,7 +8,8 @@
     "tidy": "tslint --fix *.ts lib/*.ts test/*.ts && prettier --write *.ts lib/*.ts test/*.ts"
   },
   "dependencies": {
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.3.0",
+    "node-ruuvitag": "git://github.com/balda/node-ruuvitag.git#bugfix/noble"
   },
   "devDependencies": {
     "@types/jest": "^23.3.10",
