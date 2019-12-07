@@ -69,6 +69,7 @@ export function createTagDataPayloads(
       if (deviceClass) {
         payload.attributes.device_class = deviceClass;
       }
+      payload.attributes.friendly_name = tagConfig.name;
 
       postData.push({
         url: `${config.hassHost}api/states/sensor.${tagConfig.name}_${key}`,
