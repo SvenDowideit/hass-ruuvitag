@@ -81,7 +81,7 @@ export function createTagDataPayloads(
   addSimpleNumber("temperature", "°C", "temperature");
   addSimpleNumber("pressure", "hPa", "pressure", 1 / 100);
   addSimpleNumber("humidity", "%", "humidity");
-  addSimpleNumber("battery", "mV");
+  addSimpleNumber("battery", "mV", "battery");
   addSimpleNumber("acceleration", "mG");
   addSimpleNumber("accelerationX", "mG");
   addSimpleNumber("accelerationY", "mG");
