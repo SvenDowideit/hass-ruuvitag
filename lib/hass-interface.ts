@@ -70,6 +70,7 @@ export function createTagDataPayloads(
         payload.attributes.device_class = deviceClass;
       }
       payload.attributes.friendly_name = tagConfig.name;
+      payload.attributes.ruuvitag_id = tag.id;
 
       postData.push({
         url: `${config.hassHost}api/states/sensor.${tagConfig.name}_${key}`,
