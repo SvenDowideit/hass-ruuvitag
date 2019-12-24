@@ -1,4 +1,8 @@
-import { calculateAcceleration } from "./calc";
+import {
+  calculateAcceleration,
+  calculateEquilibriumVaporPressure,
+  calculateAbsoluteHumidity
+} from "./calc";
 import { postTag } from "./hass-interface";
 import { presentUnconfiguredTag } from "./help";
 import { Config, Tag, TagData } from "./types";
@@ -19,6 +23,11 @@ export default class Manager {
     }
     const timestamp = +new Date();
     calculateAcceleration(data);
+    calculateEquilibriumVaporPressure(data);
+    calculateAbsoluteHumidity(data);
+    calculateAirDensity(data);
+    calculateDewPoint(data);
+    calculateVapourPressureDeficit(data);
 
     this.tagDatas[tag.id] = { ...data, timestamp };
     const lastUpdateTs = this.lastUpdateTimestamps[tag.id] || 0;

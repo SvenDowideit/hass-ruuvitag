@@ -13,13 +13,18 @@ export function presentUnconfiguredTag(tag: Tag, data: TagData) {
     accelerationX: false,
     accelerationY: false,
     accelerationZ: false,
+    equilibriumVaporPressure: false, // use temperature
+    absoluteHumidity: false, // use temperature & humidity
+    airDensity: false, // use temperature, humidity & pressure
+    dewPoint: false, // use temperature & humidity
+    vapourPressureDeficit: false, // use temperature & humidity
   };
   const buf = [
     `Found an unconfigured tag ${tag.id}. This will only be shown once per tag.`,
     `To help you identify this tag, its current information follows.`,
     `  ${JSON.stringify(data)}`,
     `To have its status posted to Home Assistant, add the following to the tags configuration:`,
-    `  ${JSON.stringify(exampleConfig)}`,
+    `  ${JSON.stringify(exampleConfig, null, 2)}`,
   ];
   console.log(buf.join("\n"));
 }

@@ -11,6 +11,11 @@ export interface TagConfig {
   accelerationY: boolean;
   accelerationZ: boolean;
   interval?: number;
+  equilibriumVaporPressure: boolean;
+  absoluteHumidity: boolean;
+  airDensity: boolean;
+  dewPoint: boolean;
+  vapourPressureDeficit: boolean;
 }
 
 export interface Config {
@@ -38,4 +43,9 @@ export interface TagData {
   accelerationZ: number;
   acceleration?: number; // computed by ourselves
   battery: number;
+  equilibriumVaporPressure?: number; // computed
+  absoluteHumidity?: number; // computed
+  airDensity?: number; // computed
+  dewPoint?: number; // computed
+  vapourPressureDeficit?: number; // computed
 }

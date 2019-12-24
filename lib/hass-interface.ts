@@ -88,6 +88,11 @@ export function createTagDataPayloads(
   addSimpleNumber("accelerationX", "mG");
   addSimpleNumber("accelerationY", "mG");
   addSimpleNumber("accelerationZ", "mG");
+  addSimpleNumber("equilibriumVaporPressure", "hPa", "pressure", 1 / 100);
+  addSimpleNumber("absoluteHumidity", "g/m3", "humidity");
+  addSimpleNumber("airDensity", "kg/m3");
+  addSimpleNumber("dewPoint", "°C", "temperature");
+  addSimpleNumber("vapourPressureDeficit");
   return postData;
 }
 
