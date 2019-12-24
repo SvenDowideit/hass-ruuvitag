@@ -55,6 +55,11 @@ describe("Manager", () => {
       accelerationX: true,
       accelerationY: true,
       accelerationZ: true,
+      equilibriumVaporPressure: false, // use temperature
+      absoluteHumidity: false, // use temperature & humidity
+      airDensity: false, // use temperature, humidity & pressure
+      dewPoint: false, // use temperature & humidity
+      vapourPressureDeficit: false, // use temperature & humidity
     });
     const manager = new Manager(config);
     manager.handleRuuviUpdate(tag, data);
