@@ -13,14 +13,19 @@ export function calculateAcceleration(tagData: TagData) {
  * @param temperature Temperature in Celsius
  * @return The vapor pressure in Pa
  */
-function calculateEquilibriumVaporPressure(tagData: TagData) {
+function evp(tagData: TagData) {
   if (tagData.temperature !== 0 && !tagData.temperature) {
     return null;
   }
   tagData.equilibriumVaporPressure = 611.2 * Math.exp(17.67 * tagData.temperature / (243.5 + tagData.temperature));
 }
 
-export calculateEquilibriumVaporPressure;
+export function calculateEquilibriumVaporPressure(tagData: TagData) {
+ if ((tagData.temperature !== 0 && !tagData.temperature) || !tagData.humidity) {
+   return null;
+ }
+ tagData.absoluteHumidity = evp(tagData.temperature) * tagData.humidity * 0.021674 / (273.15 + tagData.temperature);
+}
 
 /**
  * Calculates the absolute humidity
@@ -33,7 +38,7 @@ export function calculateAbsoluteHumidity(tagData: TagData) {
   if ((tagData.temperature !== 0 && !tagData.temperature) || !tagData.humidity) {
     return null;
   }
-  tagData.absoluteHumidity = calculateEquilibriumVaporPressure(tagData.temperature) * tagData.humidity * 0.021674 / (273.15 + tagData.temperature);
+  tagData.absoluteHumidity = evp(tagData.temperature) * tagData.humidity * 0.021674 / (273.15 + tagData.temperature);
 }
 
 /**
@@ -62,7 +67,7 @@ export function calculateDewPoint(tagData: TagData) {
   if ((tagData.temperature !== 0 && !tagData.temperature) || !tagData.humidity) {
     return null;
   }
-  const v = Math.log(tagData.humidity / 100 * calculateEquilibriumVaporPressure(tagData.temperature) / 611.2);
+  const v = Math.log(tagData.humidity / 100 * evp(tagData.temperature) / 611.2);
   tagData.dewPoint = -243.5 * v / (v - 17.67);
 }
 
