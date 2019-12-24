@@ -1,7 +1,10 @@
 import {
   calculateAcceleration,
   calculateEquilibriumVaporPressure,
-  calculateAbsoluteHumidity
+  calculateAbsoluteHumidity,
+  calculateAirDensity,
+  calculateDewPoint,
+  calculateVapourPressureDeficit
 } from "./calc";
 import { postTag } from "./hass-interface";
 import { presentUnconfiguredTag } from "./help";

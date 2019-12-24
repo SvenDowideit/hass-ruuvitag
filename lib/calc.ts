@@ -21,10 +21,14 @@ function evp(tagData: TagData) {
 }
 
 export function calculateEquilibriumVaporPressure(tagData: TagData) {
- if ((tagData.temperature !== 0 && !tagData.temperature) || !tagData.humidity) {
-   return null;
- }
- tagData.absoluteHumidity = evp(tagData.temperature) * tagData.humidity * 0.021674 / (273.15 + tagData.temperature);
+  if ((tagData.temperature !== 0 && !tagData.temperature) || !tagData.humidity) {
+    return null;
+  }
+  const equilibriumVaporPressure = evp(tagData);
+  if (equilibriumVaporPressure === null || equilibriumVaporPressure === undefined) {
+    return null;
+  }
+  tagData.absoluteHumidity = equilibriumVaporPressure * tagData.humidity * 0.021674 / (273.15 + tagData.temperature);
 }
 
 /**
@@ -38,7 +42,11 @@ export function calculateAbsoluteHumidity(tagData: TagData) {
   if ((tagData.temperature !== 0 && !tagData.temperature) || !tagData.humidity) {
     return null;
   }
-  tagData.absoluteHumidity = evp(tagData.temperature) * tagData.humidity * 0.021674 / (273.15 + tagData.temperature);
+  const equilibriumVaporPressure = evp(tagData);
+  if (equilibriumVaporPressure === null || equilibriumVaporPressure === undefined) {
+    return null;
+  }
+  tagData.absoluteHumidity = equilibriumVaporPressure * tagData.humidity * 0.021674 / (273.15 + tagData.temperature);
 }
 
 /**
@@ -53,7 +61,11 @@ export function calculateAirDensity(tagData: TagData) {
   if ((tagData.temperature !== 0 && !tagData.temperature) || !tagData.humidity || !tagData.pressure) {
     return null;
   }
-  tagData.airDensity = 1.2929 * 273.15 / (tagData.temperature + 273.15) * (tagData.pressure - 0.3783 * tagData.humidity / 100 * calculateEquilibriumVaporPressure(tagData.temperature)) / 101300;
+  const equilibriumVaporPressure = evp(tagData);
+  if (equilibriumVaporPressure === null || equilibriumVaporPressure === undefined) {
+    return null;
+  }
+  tagData.airDensity = 1.2929 * 273.15 / (tagData.temperature + 273.15) * (tagData.pressure - 0.3783 * tagData.humidity / 100 * equilibriumVaporPressure) / 101300;
 }
 
 /**
@@ -67,13 +79,17 @@ export function calculateDewPoint(tagData: TagData) {
   if ((tagData.temperature !== 0 && !tagData.temperature) || !tagData.humidity) {
     return null;
   }
-  const v = Math.log(tagData.humidity / 100 * evp(tagData.temperature) / 611.2);
+  const equilibriumVaporPressure = evp(tagData);
+  if (equilibriumVaporPressure === null || equilibriumVaporPressure === undefined) {
+    return null;
+  }
+  const v = Math.log(tagData.humidity / 100 * equilibriumVaporPressure / 611.2);
   tagData.dewPoint = -243.5 * v / (v - 17.67);
 }
 
-const c2k = function(tempK) {
-  return 273.15 + tempK;
-};
+// const c2k = function(tempK) {
+//   return 273.15 + tempK;
+// };
 
 /**
  * Calculates the vapour-pressure deficit
