@@ -24,7 +24,7 @@ export function presentUnconfiguredTag(tag: Tag, data: TagData) {
     `To help you identify this tag, its current information follows.`,
     `  ${JSON.stringify(data)}`,
     `To have its status posted to Home Assistant, add the following to the tags configuration:`,
-    `  ${JSON.stringify(exampleConfig, null, 2)}`,
+    `  ${JSON.stringify(exampleConfig)}`,
   ];
   console.log(buf.join("\n"));
 }
