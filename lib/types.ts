@@ -12,11 +12,11 @@ export interface TagConfig {
   accelerationZ: boolean;
   // rssi?: boolean;
   interval?: number;
-  equilibriumVaporPressure?: boolean;
-  absoluteHumidity?: boolean;
-  airDensity?: boolean;
-  dewPoint?: boolean;
-  vaporPressureDeficit?: boolean;
+  equilibriumVaporPressure: boolean;
+  absoluteHumidity: boolean;
+  airDensity: boolean;
+  dewPoint: boolean;
+  vaporPressureDeficit: boolean;
 }
 
 export interface Config {

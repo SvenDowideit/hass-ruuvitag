@@ -8,6 +8,7 @@ import { Tag, TagData } from "./lib/types";
 console.log(`This is ${packageInfo.name} ${packageInfo.version}, terrrrrrrve`);
 
 const config = readConfig(process.env.OPTIONS_JSON_PATH || "/data/options.json");
+console.log(`Config: ${JSON.stringify(config)}`);
 if (!config.hassToken) {
   console.warn("Config: no HASSIO_TOKEN, will probably not be able to post data");
 }
