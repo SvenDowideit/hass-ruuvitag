@@ -3,20 +3,20 @@ export interface TagConfig {
   name: string;
   enabled: boolean;
   temperature: boolean;
-  humidity: boolean;
   pressure: boolean;
+  humidity: boolean;
   battery: boolean;
   acceleration: boolean;
   accelerationX: boolean;
   accelerationY: boolean;
   accelerationZ: boolean;
-  rssi?: boolean;
+  // rssi?: boolean;
   interval?: number;
   equilibriumVaporPressure?: boolean;
   absoluteHumidity?: boolean;
   airDensity?: boolean;
   dewPoint?: boolean;
-  vapourPressureDeficit?: boolean;
+  vaporPressureDeficit?: boolean;
 }
 
 export interface Config {
@@ -36,17 +36,17 @@ export interface TagData {
   timestamp?: number;
   dataFormat?: number;
   rssi?: number;
-  temperature: number;
   humidity: number;
+  temperature: number;
   pressure: number;
-  battery: number;
   accelerationX: number;
   accelerationY: number;
   accelerationZ: number;
   acceleration?: number; // computed by ourselves
+  battery: number;
   equilibriumVaporPressure?: number; // computed
   absoluteHumidity?: number; // computed
   airDensity?: number; // computed
   dewPoint?: number; // computed
-  vapourPressureDeficit?: number; // computed
+  vaporPressureDeficit?: number; // computed
 }

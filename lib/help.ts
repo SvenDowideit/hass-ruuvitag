@@ -13,12 +13,12 @@ export function presentUnconfiguredTag(tag: Tag, data: TagData) {
     accelerationX: false,
     accelerationY: false,
     accelerationZ: false,
-    rssi: false,
+    // rssi: false,
     equilibriumVaporPressure: false, // use temperature
     absoluteHumidity: false, // use temperature & humidity
     airDensity: false, // use temperature, humidity & pressure
     dewPoint: false, // use temperature & humidity
-    vapourPressureDeficit: false, // use temperature & humidity
+    vaporPressureDeficit: false, // use temperature & humidity
   };
   const buf = [
     `Unconfigured tag ${tag.id}: ${JSON.stringify(data)}`,

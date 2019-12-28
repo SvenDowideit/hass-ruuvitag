@@ -4,7 +4,7 @@ import {
   calculateAbsoluteHumidity,
   calculateAirDensity,
   calculateDewPoint,
-  calculateVapourPressureDeficit
+  calculateVaporPressureDeficit
 } from "./calc";
 import { postTag } from "./hass-interface";
 import { presentUnconfiguredTag } from "./help";
@@ -30,7 +30,7 @@ export default class Manager {
     calculateAbsoluteHumidity(data);
     calculateAirDensity(data);
     calculateDewPoint(data);
-    calculateVapourPressureDeficit(data);
+    calculateVaporPressureDeficit(data);
 
     this.tagDatas[tag.id] = { ...data, timestamp };
     const lastUpdateTs = this.lastUpdateTimestamps[tag.id] || 0;

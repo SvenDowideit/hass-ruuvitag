@@ -71,10 +71,10 @@ export function calculateDewPoint(tagData: TagData) {
  * @param humidity Relative humidity % (range 0-100)
  * @return vapour-pressure deficit (0-20) in hPa
  */
-export function calculateVapourPressureDeficit(tagData: TagData) {
+export function calculateVaporPressureDeficit(tagData: TagData) {
   if ((tagData.temperature !== 0 && !tagData.temperature) || !tagData.humidity) {
     return null;
   }
   const ew = Math.exp(13.7 - 5120 / (273.15 + tagData.temperature)) * 1000;
-  tagData.vapourPressureDeficit = ew - tagData.humidity / 100 * ew;
+  tagData.vaporPressureDeficit = ew - tagData.humidity / 100 * ew;
 }
