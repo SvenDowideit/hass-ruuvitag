@@ -24,9 +24,6 @@ export default class Manager {
     if (!tagConfig && !this.tagDatas[tag.id]) {
       presentUnconfiguredTag(tag, data);
     }
-    if (!(tagConfig && tagConfig.enabled)) {
-      return;
-    }
     const timestamp = +new Date();
     calculateAcceleration(data);
     calculateEquilibriumVaporPressure(data);
@@ -37,6 +34,9 @@ export default class Manager {
 
     this.tagDatas[tag.id] = { ...data, timestamp };
     const lastUpdateTs = this.lastUpdateTimestamps[tag.id] || 0;
+    if (!(tagConfig && tagConfig.enabled)) {
+      return;
+    }
     const interval = (tagConfig.interval || 0 || this.config.interval) * 1000;
     if (interval > 0 && timestamp - lastUpdateTs >= interval) {
       this.lastUpdateTimestamps[tag.id] = timestamp;

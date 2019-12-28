@@ -71,6 +71,7 @@ export function createTagDataPayloads(
       }
       payload.attributes.friendly_name = tagConfig.name;
       payload.attributes.ruuvitag_id = tag.id;
+      payload.attributes.measure = key;
 
       postData.push({
         url: `${config.hassHost}api/states/sensor.${tagConfig.name}_${key}`,
@@ -88,11 +89,12 @@ export function createTagDataPayloads(
   addSimpleNumber("accelerationX", "mG");
   addSimpleNumber("accelerationY", "mG");
   addSimpleNumber("accelerationZ", "mG");
-  addSimpleNumber("equilibriumVaporPressure", "hPa", "pressure", 1 / 100);
-  addSimpleNumber("absoluteHumidity", "g/m3", "humidity");
-  addSimpleNumber("airDensity", "kg/m3");
-  addSimpleNumber("dewPoint", "°C", "temperature");
-  addSimpleNumber("vapourPressureDeficit");
+  addSimpleNumber("rssi", "dB", "signal_strength");
+  addSimpleNumber("equilibrium_vapor_pressure", "hPa", "pressure", 1 / 100);
+  addSimpleNumber("absolute_humidity", "g/m3", "humidity");
+  addSimpleNumber("air_density", "kg/m3");
+  addSimpleNumber("dew_point", "°C", "temperature");
+  addSimpleNumber("vapour_pressure_deficit", "hPa", "pressure");
   return postData;
 }
 

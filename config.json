@@ -32,12 +32,13 @@
                 "accelerationX": "bool",
                 "accelerationY": "bool",
                 "accelerationZ": "bool",
+                "rssi": "bool",
                 "interval": "int?",
-                "equilibriumVaporPressure": "bool",
-                "absoluteHumidity": "bool",
-                "airDensity": "bool",
-                "dewPoint": "bool",
-                "vapourPressureDeficit": "bool"
+                "equilibrium_vapor_pressure": "bool",
+                "absolute_humidity": "bool",
+                "air_density": "bool",
+                "dew_point": "bool",
+                "vapour_pressure_deficit": "bool"
             }
         ]
     }
