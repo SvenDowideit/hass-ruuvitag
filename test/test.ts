@@ -55,7 +55,7 @@ describe("Manager", () => {
       accelerationX: true,
       accelerationY: true,
       accelerationZ: true,
-      // rssi: false,
+      rssi: false,
       equilibriumVaporPressure: false, // use temperature
       absoluteHumidity: false, // use temperature & humidity
       airDensity: false, // use temperature, humidity & pressure

@@ -1,6 +1,6 @@
 {
     "name": "Ruuvitag",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "slug": "ruuvitag",
     "description": "Atmospheric information from Ruuvitag BLE sensors",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -33,6 +33,7 @@
                 "accelerationY": "bool",
                 "accelerationZ": "bool",
                 "interval": "int?",
+                "rssi": "bool",
                 "equilibriumVaporPressure": "bool",
                 "absoluteHumidity": "bool",
                 "airDensity": "bool",

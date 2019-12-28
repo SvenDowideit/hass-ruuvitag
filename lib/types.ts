@@ -10,7 +10,7 @@ export interface TagConfig {
   accelerationX: boolean;
   accelerationY: boolean;
   accelerationZ: boolean;
-  // rssi?: boolean;
+  rssi: boolean;
   interval?: number;
   equilibriumVaporPressure: boolean;
   absoluteHumidity: boolean;
