@@ -5,7 +5,7 @@ import { readConfig } from "./lib/config";
 import Manager from "./lib/Manager";
 import { Tag, TagData } from "./lib/types";
 
-console.log(`This is ${packageInfo.name} ${packageInfo.version}, terrrrrrrve`);
+console.log(`This is ${packageInfo.name} ${packageInfo.version}`);
 
 const config = readConfig(process.env.OPTIONS_JSON_PATH || "/data/options.json");
 // console.log(`Config: ${JSON.stringify(config)}`);

@@ -90,11 +90,11 @@ export function createTagDataPayloads(
   addSimpleNumber("accelerationY", "mG");
   addSimpleNumber("accelerationZ", "mG");
   addSimpleNumber("rssi", "dBm", "signal_strength");
-  addSimpleNumber("equilibriumVaporPressure", "hPa", "pressure", 1 / 100);
-  addSimpleNumber("absoluteHumidity", "g/m3", "humidity");
-  addSimpleNumber("airDensity", "kg/m3");
-  addSimpleNumber("dewPoint", "°C", "temperature");
-  addSimpleNumber("vaporPressureDeficit", "hPa", "pressure");
+  addSimpleNumber("equilibrium_vapor_pressure", "hPa", "pressure", 1 / 100);
+  addSimpleNumber("absolute_humidity", "g/m3", "humidity");
+  addSimpleNumber("air_density", "kg/m3");
+  addSimpleNumber("dew_point", "°C", "temperature");
+  addSimpleNumber("vapor_pressure_deficit", "hPa", "pressure");
   return postData;
 }
 
@@ -102,6 +102,9 @@ export function postTag(config: Config, tag: Tag, tagConfig: TagConfig, data: Ta
   const postData = createTagDataPayloads(config, tag, tagConfig, data);
   if (config.debug & 1) {
     console.info(postData);
+  }
+  if (config.discovery) {
+    //
   }
   return Promise.all(postData.map(datum => doDatumRequest(config, datum))).then(
     responses => {

@@ -1,6 +1,6 @@
 {
     "name": "Ruuvitag",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "slug": "ruuvitag",
     "description": "Atmospheric information from Ruuvitag BLE sensors",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -14,11 +14,13 @@
     "options": {
         "interval": 30,
         "debug": 0,
+        "discovery": false,
         "tags": []
     },
     "schema": {
         "interval": "int",
         "debug": "int?",
+        "discovery": "bool",
         "tags": [
             {
                 "id": "str",
@@ -34,11 +36,11 @@
                 "accelerationZ": "bool",
                 "interval": "int?",
                 "rssi": "bool",
-                "equilibriumVaporPressure": "bool",
-                "absoluteHumidity": "bool",
-                "airDensity": "bool",
-                "dewPoint": "bool",
-                "vaporPressureDeficit": "bool"
+                "equilibrium_vapor_pressure": "bool",
+                "absolute_humidity": "bool",
+                "air_density": "bool",
+                "dew_point": "bool",
+                "vapor_pressure_deficit": "bool"
             }
         ]
     }

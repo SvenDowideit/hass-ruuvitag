@@ -1,6 +1,6 @@
 {
   "name": "hassio-ruuvitag",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "app.ts",
   "license": "MIT",
   "scripts": {

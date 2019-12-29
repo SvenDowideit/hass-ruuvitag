@@ -4,6 +4,7 @@ export function getBaseConfig(): Config {
   return {
     interval: 30,
     debug: 0,
+    discovery: false,
     tags: [],
     hassHost: process.env.HASS_HOST || "http://hassio/homeassistant/",
     hassToken: process.env.HASSIO_TOKEN,
